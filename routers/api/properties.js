@@ -76,7 +76,7 @@ router.get('/wojewodztwa/:wojewodztwo/:powiat/:gmina', async (req, res) => {
 
 router.get('/wojewodztwa/:wojewodztwo/:powiat/:gmina/:miasto', async (req, res) => {
     try {
-      connection.promise().query(`SELECT * FROM mieszkania where wojewodztwo ='${req.params.wojewodztwo}' and miejscowosc = '${req.params.miasto}'`)
+      connection.promise().query(`SELECT * FROM mieszkania_otodom where County ='${req.params.wojewodztwo}' and City = '${req.params.miasto}'`)
       .then( ([rows,fields]) => {
         console.log(rows);
         res.status(200).json(rows).end();
